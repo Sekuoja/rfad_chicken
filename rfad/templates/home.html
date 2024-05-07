@@ -8,7 +8,7 @@
             max-height: 100vh;
             overflow: hidden;
             position: relative;
-            background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+            background-image: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgb(0, 0, 0));
 }
         }
         .intro:after {
@@ -60,10 +60,19 @@
             color: #fff;
             text-align: center;
         }
+        .container-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-size: 100%;
+            height: 100vh;
+            background-image: url("{% static '2.png' %}");
+            background-repeat: no-repeat;
+        }
     </style>
     <div class="intro">
         <div class="video">
-            <video class="video__media" aria-controls="false"  autoplay muted loop >
+            <video class="video__media" aria-controls="false"  autoplay muted="true" loop disablePictureInPicture >
                 <source src="{% static 'background-video.mp4' %}" type="video/mp4">
             </video>
         </div>
@@ -75,5 +84,9 @@ by Immersive Chicken</h1>
 
         </div>
     </div>
+    <div>
+        <div class="container-2">123132</div>
+    </div>
+
 <h1>{% translate "home" %}</h1>
 {% endblock %}
