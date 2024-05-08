@@ -52,6 +52,8 @@
     font-size: 52px;
     color: #fff;
     text-align: center;
+    animation-duration: 3s;
+    animation-name: slidein;
 }
 .container-2 {
     display: flex;
@@ -65,4 +67,33 @@
     background: #343a40 !important;
     border-radius: 10px 10px;
     color: #ffc107 !important;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+
+  }
+}
+.intro__title {
+    animation-duration: 2s;
+    animation-name: text-shadow;
+}
+
+@keyframes text-shadow {
+    from {
+        text-shadow: none;
+    }
+    to {
+        text-shadow: #FC0 1px 0 10px;
+    }
+    .intro__title {
+        text-shadow: #FC0 1px 0 10px;
+    }
 }
