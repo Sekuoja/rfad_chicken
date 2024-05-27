@@ -2,27 +2,35 @@ services:
   app:
     build: ./app
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
     env_file:
       - ./app/config/.env
-#    volumes:
-#      - static_volume: /home/app/web/staticfiles
-#      - media_volume: /home/app/web/mediafiles
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
     depends_on:
       - db
-
   db:
     image: postgres:15.0-alpine
-    ports:
-      - 3306:5432
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: "rfad_database"
       POSTGRES_USER: "rfad_user"
       POSTGRES_PASSWORD: "123qwe"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    ports:
+      - 1337:80
+    depends_on:
+      - app
 volumes:
   postgres_data:
-#  static_volume:
-#  media_volume:
+  static_volume:
+  media_volume:
