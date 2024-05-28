@@ -12,7 +12,6 @@ then
 fi
 
 
-python manage.py migrate
-
+python manage.py migrate --noinput
 
 exec "$@"

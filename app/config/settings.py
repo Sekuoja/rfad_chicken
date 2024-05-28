@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'rfad.apps.RfadConfig'
 ]
 
@@ -96,6 +97,7 @@ USE_TZ = True
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "media"),
 # ]
+CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0:1337"]
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
