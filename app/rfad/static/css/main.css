@@ -54,6 +54,7 @@
     text-align: center;
     animation-duration: 3s;
     animation-name: slidein;
+    animation-fill-mode: forwards;
 }
 .container-2 {
     display: flex;
